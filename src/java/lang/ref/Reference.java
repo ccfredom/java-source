@@ -122,6 +122,7 @@ public abstract class Reference<T> {
      * them.  This list is protected by the above lock object. The
      * list uses the discovered field to link its elements.
      */
+    //todo type argument 为什么是 Object？
     private static Reference<Object> pending = null;
 
     /* High-priority thread to enqueue pending References
