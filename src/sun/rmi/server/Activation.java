@@ -1943,7 +1943,7 @@ public class Activation implements Serializable {
 
     /**
      * Main program to start the activation system. <br>
-     * The usage is as follows: rmid [-port num] [-log dir].
+     * The usage is as follows:  [-port num] [-log dir].
      */
     public static void main(String[] args) {
         boolean stop = false;

@@ -624,6 +624,9 @@ public class HashMap<K,V> extends AbstractMap<K,V>
      */
     final V putVal(int hash, K key, V value, boolean onlyIfAbsent,
                    boolean evict) {
+        /**
+         *
+         */
         Node<K,V>[] tab; Node<K,V> p; int n, i;
         if ((tab = table) == null || (n = tab.length) == 0)
             n = (tab = resize()).length;
@@ -703,6 +706,12 @@ public class HashMap<K,V> extends AbstractMap<K,V>
         @SuppressWarnings({"rawtypes","unchecked"})
         Node<K,V>[] newTab = (Node<K,V>[])new Node[newCap];
         table = newTab;
+        /**
+         * TODO 调整大小时，老数据处理
+         * 1. 只有一个节点，直接放到对应的桶位置
+         * 2. 树处理
+         * 3. 普通链表，第一个节点位置不变，另外的放到原有位置偏移oldCap的地方
+         */
         if (oldTab != null) {
             for (int j = 0; j < oldCap; ++j) {
                 Node<K,V> e;

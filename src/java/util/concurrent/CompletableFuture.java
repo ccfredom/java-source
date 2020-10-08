@@ -215,6 +215,14 @@ public class CompletableFuture<T> implements Future<T>, CompletionStage<T> {
      * publication.
      */
 
+    /**
+     * " Completion fields need not be declared as final or volatile
+     * because they are only visible to other threads upon safe
+     * publication. "
+     * completion是怎么安全发布的？
+     * see: tryPushStack()
+     */
+
     volatile Object result;       // Either the result or boxed AltResult
     volatile Completion stack;    // Top of Treiber stack of dependent actions
 
