@@ -35,7 +35,7 @@ import java.util.Arrays;
 /**
  * Immutable, arbitrary-precision signed decimal numbers.  A
  * {@code BigDecimal} consists of an arbitrary precision integer
- * <i>unscaled value</i> and a 32-bit integer <i>scale</i>.  If zero
+ * <i>unscaled value</i> and a 32-bit integer <i>scale</i>.  If
  * or positive, the scale is the number of digits to the right of the
  * decimal point.  If negative, the unscaled value of the number is
  * multiplied by ten to the power of the negation of the scale.  The

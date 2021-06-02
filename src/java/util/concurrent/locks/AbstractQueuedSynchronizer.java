@@ -679,6 +679,11 @@ public abstract class AbstractQueuedSynchronizer
          * unparkSuccessor, we need to know if CAS to reset status
          * fails, if so rechecking.
          */
+        /*
+            1. 按照正常方式 unparkSuccessor
+            2. 若不符合上述，则设置传播状态
+            3. 循环判定上述条件，避免新添加节点
+         */
         for (;;) {
             Node h = head;
             if (h != null && h != tail) {
@@ -952,7 +957,7 @@ public abstract class AbstractQueuedSynchronizer
             boolean interrupted = false;
             for (;;) {
                 final Node p = node.predecessor();
-                if (p == head) {
+                if (p == head) { //这里确保只能head的后继才能争抢
                     int r = tryAcquireShared(arg);
                     if (r >= 0) {
                         setHeadAndPropagate(node, r);

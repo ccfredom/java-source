@@ -178,10 +178,10 @@ public class CountDownLatch {
             for (;;) {
                 int c = getState();
                 if (c == 0)
-                    return false;
+                    return false; //这里代表闭锁已经打开，不会阻塞新的线程，这里也不用唤醒已经阻塞的线程，因为前面的唤醒会传播？
                 int nextc = c-1;
                 if (compareAndSetState(c, nextc))
-                    return nextc == 0;
+                    return nextc == 0; //status为0的时候，才代表需要唤醒阻塞线程
             }
         }
     }
